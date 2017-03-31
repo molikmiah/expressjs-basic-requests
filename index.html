@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example App using Express Service</title>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    function login() {
+      var username = $('#user').val();
+      var password = $('#password').val();
+
+      $.ajax({
+          method: "POST",
+          url: "http://localhost:3000/user",
+          data: {
+            "user": username,
+            "password": password
+          },
+          dataType: "application/json",
+          success: function(data) {
+              // success
+          },
+          error: function() {
+              // error case
+          }
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <label for="user">
+    Username:
+    <input type="text" name="user" id="user">
+  </label>
+
+  <label for="password">
+    Password:
+    <input type="text" name="password" id="password">
+  </label>
+
+  <button id="mybutton" onclick="login();">LOG IN NOW</button>
+</body>
+</html>

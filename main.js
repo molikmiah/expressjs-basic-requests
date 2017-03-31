@@ -18,6 +18,14 @@ app.get('/user', function(req, res) {
 });
 
 // http POST request to http://localhost:3000/user
+// post following in JSON format
+// username = admin
+// password = password123
+// example payload:
+// {
+//   "user": "admin",
+//   "password": "password123"
+// }
 app.post('/user', function(req, res) {
   var username = req.body.user;
   var password = req.body.password;
@@ -25,10 +33,10 @@ app.post('/user', function(req, res) {
 
   // run logic here, e.g. verifying log in details with a database
   if (username === 'admin' && password === 'password123') {
-    req.statusCode(201).send('Logged In Successfully');
+    res.status(201).send('Logged In Successfully');
   }
   else {
-    req.statusCode(401).send('You do not have permission to access.');
+    res.status(401).send('You do not have permission to access.');
   }
 });
 

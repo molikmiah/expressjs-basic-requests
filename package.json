@@ -4,12 +4,13 @@
   "description": "A basic example of how to use express.js to handle basic http requests",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js"
   },
   "author": "Molik Miah",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "jquery": "^3.2.1"
   }
 }
