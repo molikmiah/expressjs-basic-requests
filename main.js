@@ -2,6 +2,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var path = require('path');
 
 // user the bodyParser
 app.use(bodyParser.json()); // support json encoded bodies
@@ -9,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // respond with "Example App." when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.send('Example App.');
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 // normal http request to http://localhost:3000/user
@@ -33,7 +34,7 @@ app.post('/user', function(req, res) {
 
   // run logic here, e.g. verifying log in details with a database
   if (username === 'admin' && password === 'password123') {
-    res.status(201).send('Logged In Successfully');
+    res.status(201).send(JSON.stringify({'message': 'done'}));
   }
   else {
     res.status(401).send('You do not have permission to access.');
